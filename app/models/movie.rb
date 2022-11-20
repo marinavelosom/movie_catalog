@@ -1,7 +1,8 @@
 class Movie < ApplicationRecord
-    has_many :casts, dependent: :destroy
+    
+    has_many :casts, dependent: :destroy 
     has_many :actors, through: :casts
-    has_many :comments
+    has_many :comments, dependent: :destroy 
 
     validates :title, :release_year, presence: true
     validates :title, uniqueness: { case_sensitive: false }
@@ -11,4 +12,5 @@ class Movie < ApplicationRecord
     def actors_cannot_be_empty
         errors.add(:actors, "must be selected") if self.actors.empty?
     end
+    
 end
