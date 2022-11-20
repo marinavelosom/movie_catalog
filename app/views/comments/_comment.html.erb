@@ -1,13 +1,13 @@
 <div id="<%= dom_id comment %>">
   <p>
-    <strong>Content:</strong>
+    <strong>Conteúdo:</strong>
     <%= comment.content %>
   </p>
 
   <p>
-    <strong>Movie:</strong>
+    <strong>Filme:</strong>
     <%= comment.movie.title %>
   </p>
-  <%= button_to "Approve Comment", {action: "approve", id: comment.id} %>
+  <%= button_to "Aprovar comentário", { action: "approve", id: comment.id } %>
 
 </div>

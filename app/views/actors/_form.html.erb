@@ -2,7 +2,6 @@
   <% if actor.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(actor.errors.count, "error") %> prohibited this actor from being saved:</h2>
-
       <ul>
         <% actor.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -12,17 +11,17 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label :name, "Nome:", style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :birth_year, style: "display: block" %>
+    <%= form.label :birth_year, "Ano de Nascimento:", style: "display: block" %>
     <%= form.number_field :birth_year, min: 1 %>
   </div>
 
   <div>
-    <%= form.label :email, style: "display: block" %>
+    <%= form.label :email, "Email", style: "display: block" %>
     <%= form.text_field :email %>
   </div>
 

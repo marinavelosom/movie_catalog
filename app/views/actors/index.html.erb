@@ -1,15 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Actors</h1>
+<h1>Atores</h1>
 
 <div id="actors">
   <% @actors.each do |actor| %>
     <%= render actor %>
     <p>
-      <%= link_to "Show this actor", actor %>
+      <%= link_to "Ver mais", actor %>
     </p>
     <br>
   <% end %>
 </div>
 
-<%= link_to "New actor", new_actor_path %>
+<%= link_to "Novo ator", new_actor_path %>
