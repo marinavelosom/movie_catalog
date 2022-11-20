@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: %i[ show edit update destroy ]
+  before_action :set_actors, only: %i[ new create edit update ]
 
   def index
     @movies = Movie.all
@@ -50,7 +51,11 @@ class MoviesController < ApplicationController
       @movie = Movie.find(params[:id])
     end
 
+    def set_actors
+      @actors = Actor.all
+    end
+
     def movie_params
-      params.require(:movie).permit(:title, :release_year)
+      params.require(:movie).permit(:title, :release_year, actor_ids: [])
     end
 end
