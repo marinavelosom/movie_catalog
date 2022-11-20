@@ -1,6 +1,7 @@
 class Movie < ApplicationRecord
     has_many :casts, dependent: :destroy
     has_many :actors, through: :casts
+    has_many :comments
 
     validates :title, :release_year, presence: true
     validates :title, uniqueness: { case_sensitive: false }
