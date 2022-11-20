@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
-  before_action :show_movies, only: %i[ create edit ]
+  before_action :set_movie, only: %i[new edit create update]
 
   # GET /comments or /comments.json
   def index
@@ -29,6 +29,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to comment_url(@comment), notice: "Comment was successfully created." }
         format.json { render :show, status: :created, location: @comment }
       else
+        
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
@@ -63,6 +64,9 @@ class CommentsController < ApplicationController
   end
 
   private
+    def set_movie
+      @movies = Movie.all.pluck(:title, :id)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])
@@ -71,9 +75,5 @@ class CommentsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def comment_params
       params.require(:comment).permit(:content, :movie_id)
-    end
-
-    def show_movies
-      @movie = Movie.all
     end
 end

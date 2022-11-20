@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :movie_id, style: "display: block" %>
-    <%= form.text_field :movie_id %>
+    <%= form.select :movie_id, @movies, {}, {} %>
   </div>
 
   <div>
