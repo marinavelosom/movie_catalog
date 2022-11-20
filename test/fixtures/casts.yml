@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  release_year: 2022-11-19
+  movie: one
+  actor: one
 
 two:
-  title: MyString
-  release_year: 2022-11-19
+  movie: two
+  actor: two

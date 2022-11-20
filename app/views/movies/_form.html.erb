@@ -12,15 +12,20 @@
   <% end %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
+    <%= form.label :title, "Título:", style: "display: block" %>
     <%= form.text_field :title %>
   </div>
-
+  <br>
   <div>
-    <%= form.label :releaseDate, style: "display: block" %>
-    <%= form.date_field :releaseDate %>
+    <%= form.label :release_year, "Ano de Lançamento:", style: "display: block" %>
+    <%= form.number_field :release_year, min: 1 %>
   </div>
-
+  <br>
+  <div>
+    <%= form.label :actor_ids, "Elenco de Atores:", style: "display: block" %>
+    <%= form.collection_check_boxes :actor_ids, @actors, :id, :name %>
+  </div>
+  <br>
   <div>
     <%= form.submit %>
   </div>

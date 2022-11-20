@@ -14,7 +14,7 @@ class MoviesTest < ApplicationSystemTestCase
     visit movies_url
     click_on "New movie"
 
-    fill_in "Releasedate", with: @movie.releaseDate
+    fill_in "release_year", with: @movie.release_year
     fill_in "Title", with: @movie.title
     click_on "Create Movie"
 
@@ -26,7 +26,7 @@ class MoviesTest < ApplicationSystemTestCase
     visit movie_url(@movie)
     click_on "Edit this movie", match: :first
 
-    fill_in "Releasedate", with: @movie.releaseDate
+    fill_in "release_year", with: @movie.release_year
     fill_in "Title", with: @movie.title
     click_on "Update Movie"
 
