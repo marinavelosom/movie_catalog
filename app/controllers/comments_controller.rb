@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :set_comment, only: %i[ show edit update destroy approve]
   before_action :set_movie, only: %i[new edit create update]
 
   # GET /comments or /comments.json
@@ -28,7 +28,6 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to comment_url(@comment), notice: "Comment was successfully created." }
       else
-        abort Comment.inspect
         format.html { render :new, status: :unprocessable_entity }
       end
     end
@@ -54,10 +53,21 @@ class CommentsController < ApplicationController
     end
   end
 
+  def approve
+    respond_to do |format|
+      if @comment.update(aprove: true)
+        format.html { redirect_to comments_path, notice: "Comment was successfully approved." }
+      else
+        format.html { redirect_to comments_url(@comment), status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     def set_movie
       @movies = Movie.all.pluck(:title, :id)
     end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])
