@@ -7,6 +7,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @comments = Comment.aproved
   end
 
   def new

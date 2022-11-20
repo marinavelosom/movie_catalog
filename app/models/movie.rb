@@ -1,4 +1,5 @@
 class Movie < ApplicationRecord
+    
     has_many :casts, dependent: :destroy
     has_many :actors, through: :casts
     has_many :comments
@@ -11,4 +12,5 @@ class Movie < ApplicationRecord
     def actors_cannot_be_empty
         errors.add(:actors, "must be selected") if self.actors.empty?
     end
+    
 end
