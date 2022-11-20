@@ -3,9 +3,10 @@
 <%= render @movie %>
 <%= render "cast", movie: @movie %>
 
+<br>
 <div>
   <%= link_to "Edit this movie", edit_movie_path(@movie) %> |
   <%= link_to "Back to movies", movies_path %>
-
+  <br><br>
   <%= button_to "Destroy this movie", @movie, method: :delete %>
 </div>
