@@ -2,8 +2,8 @@
 
 one:
   title: MyString
-  releaseDate: 2022-11-19
+  release_year: 2022-11-19
 
 two:
   title: MyString
-  releaseDate: 2022-11-19
+  release_year: 2022-11-19
