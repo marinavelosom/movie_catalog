@@ -1,5 +1,5 @@
 class Movie < ApplicationRecord
-    has_many :casts
+    has_many :casts, dependent: :destroy
     has_many :actors, through: :casts
 
     validates :title, :release_year, presence: true
