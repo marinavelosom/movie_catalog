@@ -16,7 +16,7 @@ RSpec.describe Comment, type: :model do
     end
 
     it 'not is valid without movie' do
-      comment = Comment.new(content: "Comentário") 
+      comment = Comment.new(content: "") 
       expect(comment).to_not be_valid
     end
   end
@@ -31,6 +31,11 @@ RSpec.describe Comment, type: :model do
       comment = Comment.update(aprove: true)
       log = Log.find_by(comment:comment)
       expect(log).to_not be_nil
+    end
+
+    it 'movies' do
+      comment = Comment.new(content: "lorem", movie_id: movie.id)
+      expect(comment_movie:movie).to_not be_empty
     end
   end
 end
