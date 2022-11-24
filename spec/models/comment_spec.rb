@@ -20,18 +20,17 @@ RSpec.describe Comment, type: :model do
       expect(comment).to_not be_valid
     end
   end
-
-  context 'if was approved' do
-    it 'not at approved' do
-      expect(comment.aprove).to eq(false)
-    end
-  end
-
+  
   context 'after saving' do
+    it 'not approved' do
+      log = Log.find_by(comment:comment)
+      expect(log).to be_nil
+    end
+
     it 'approved' do
       comment = Comment.update(aprove: true)
-      log = Log.all
-      expect(log).to_not be_empty
+      log = Log.find_by(comment:comment)
+      expect(log).to_not be_nil
     end
   end
 end
