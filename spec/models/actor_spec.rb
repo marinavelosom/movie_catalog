@@ -59,7 +59,7 @@ RSpec.describe Actor, type: :model do
   context "after created and associated with a movie" do
     before(:each) do
       @actor = Actor.create(name: "Um", birth_year: 1990, email: "teste@teste")
-      @movie = Movie.create!(title: "Movie title", release_year: 1990, actors: [@actor])
+      @movie = Movie.create(title: "Movie title", release_year: 1990, actors: [@actor])
     end
 
     it "should list the actor movie" do
